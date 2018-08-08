@@ -1,12 +1,12 @@
 # uml-designer-docker
 [![](https://images.microbadger.com/badges/image/openkbs/uml-designer-docker.svg)](https://microbadger.com/images/openkbs/uml-designer-docker "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/openkbs/uml-designer-docker.svg)](https://microbadger.com/images/openkbs/eclipse-oxygen-docker "Get your own version badge on microbadger.com")
 
-* Eclipse-Photon + Java 8 JDK + Maven 3.5 + Python 3.5 + X11 (display GUI)
+* UMLDesigner 8 + Java 8 JDK + Maven 3.5 + Python 3.5 + X11 (display GUI)
 
 # NOTE: This docker now is providing latest Eclipse Photon instead of Oxygen!!!
 
 # Components
-* Eclipse-Photon
+* UMLDesigner 8
 * java version "1.8.0_181"
   Java(TM) SE Runtime Environment (build 1.8.0_181-b13)
   Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
@@ -29,18 +29,6 @@ If you want to build older Eclipse like "oxygen", you can following instruction 
 ./build.sh
 ```
 
-## Build (Older Eclipse, e.g. Oxygen)
-* Way-1: Modify the line in Dockefile as below if you use Docker-compose or Openshift CI/CD. That is, you se this way if you are not using command line ./build.sh to build container image.
-```
-## -- Eclipse version: oxygen, photon, etc.: -- ##
-ENV ECLIPSE_VERSION=${ECLIPSE_VERSION:-oxygen}
-```
-* Way-2: If you use command line "./build.sh", you can modify "./docker.env" file and then, run "./build.sh" to build image
-```
-## -- Eclipse version: oxygen, photon, etc.: -- ##
-ECLIPSE_VERSION=photon
-```
-
 # Configurations (Optional)
 If you run "./run.sh" instead of "docker-compose up", you don't have to do anything as below.
 
@@ -52,6 +40,7 @@ $HOME/data_docker/eclipse-oxygen-docker/workspace
 The above configuration will ensure all your projects created in the container's "/workspace" being "persistent" in your local folder, "$HOME/data_docker/eclipse-oxygen-docker/workspace", for your repetitive restart docker container.
 
 # Other docker-based IDE
+* [openkbs/eclipse-photon-docker](https://hub.docker.com/r/openkbs/eclipse-photon-docker/)
 * [openkbs/eclipse-oxygen-docker](https://hub.docker.com/r/openkbs/eclipse-oxygen-docker/)
 * [openkbs/netbeans](https://hub.docker.com/r/openkbs/netbeans/)
 * [openkbs/scala-ide-docker](https://hub.docker.com/r/openkbs/scala-ide-docker/)
