@@ -21,7 +21,7 @@ ENV PRODUCT_VERSION=${PRODUCT_VERSION:-8.1.0}
 ## ----------- Don't change below unless Product download system change -------------- ##
 ## ----------------------------------------------------------------------------------- ##
 ## -- Eclipse Download Mirror site: -- ##
-ARG PRODUCT_MIRROR_SITE_URL=${PRODUCT_MIRROR_SITE_URL:-https://s3-eu-west-1.amazonaws.com/obeo-umldesigner-releases/}
+ARG PRODUCT_MIRROR_SITE_URL=${PRODUCT_MIRROR_SITE_URL:-https://s3-eu-west-1.amazonaws.com/obeo-umldesigner-releases}
 
 ## -- Eclipse TAR/GZ filename: -- ##
 ARG PRODUCT_TAR=${PRODUCT_TAR:-UMLDesigner-linux.gtk.x86_64.zip}

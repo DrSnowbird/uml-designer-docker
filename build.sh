@@ -20,10 +20,10 @@ ORGANIZATION=openkbs
 #### ---- Generate build-arg arguments ----
 ###################################################
 BUILD_ARGS=""
-ARGS_DEFINITION_FILE="./docker.env"
+DOCKER_ENV="./docker.env"
 ## -- ignore entries start with "#" symbol --
 function generateBuildArgs() {
-    for r in `cat ${ARGS_DEFINITION_FILE} | grep -v '^#'`; do
+    for r in `cat ${DOCKER_ENV} | grep -v '^#'`; do
         echo "entry=$r"
         key=`echo $r | tr -d ' ' | cut -d'=' -f1`
         value=`echo $r | tr -d ' ' | cut -d'=' -f2`

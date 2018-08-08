@@ -39,8 +39,6 @@ PACKAGE="${imageTag##*/}"
 # ---------------------------
 # Variable: VOLUMES_LIST
 # (NEW: use docker.env with "#VOLUMES_LIST=data workspace" to define entries)
-DOCKER_ENV="./docker.env"
-
 # ---------------------------
 ## -- If you defined locally here, 
 ##    then the definitions of volumes map in "docker.env" will be ignored.
@@ -84,7 +82,7 @@ function generateVolumeMapping() {
     if [ "$VOLUMES_LIST" == "" ]; then
         ## -- If locally defined in this file, then respect that first.
         ## -- Otherwise, go lookup the docker.env as ride-along source for volume definitions
-        VOLUMES_LIST=`cat ${DOCKER_ENV}|grep "^#VOLUMES_LIST= *"|sed "s/[#\"]//g"|cut -d'=' -f2-`
+        VOLUMES_LIST=`cat docker.env|grep "^#VOLUMES_LIST= *"|sed "s/[#\"]//g"|cut -d'=' -f2-`
     fi
     for vol in $VOLUMES_LIST; do
         echo "$vol"
@@ -143,7 +141,7 @@ function generatePortMapping() {
     if [ "$PORTS" == "" ]; then
         ## -- If locally defined in this file, then respect that first.
         ## -- Otherwise, go lookup the docker.env as ride-along source for volume definitions
-        PORTS_LIST=`cat ${DOCKER_ENV}|grep "^#PORTS_LIST= *"|sed "s/[#\"]//g"|cut -d'=' -f2-`
+        PORTS_LIST=`cat docker.env|grep "^#PORTS_LIST= *"|sed "s/[#\"]//g"|cut -d'=' -f2-`
     fi
     for pp in ${PORTS_LIST}; do
         #echo "$pp"
@@ -202,7 +200,7 @@ function displayURL() {
 #### ---- Replace "Key=Value" withe new value ----
 ###################################################
 function replaceKeyValue() {
-    inFile=${1:-./${DOCKER_ENV}}
+    inFile=${1:-./docker.env}
     keyLike=$2
     newValue=$3
     if [ "$2" == "" ]; then
@@ -212,8 +210,8 @@ function replaceKeyValue() {
     sed -i -E 's/^('$keyLike'[[:blank:]]*=[[:blank:]]*).*/\1'$newValue'/' $inFile
 }
 #### ---- Replace docker.env with local user's UID and GID ----
-replaceKeyValue ./${DOCKER_ENV} "USER_ID" "$(id -u $USER)"
-replaceKeyValue ./${DOCKER_ENV} "GROUP_ID" "$(id -g $USER)"
+replaceKeyValue ./docker.env "USER_ID" "$(id -u $USER)"
+replaceKeyValue ./docker.env "GROUP_ID" "$(id -g $USER)"
 
 ## -- transform '-' and space to '_' 
 #instanceName=`echo $(basename ${imageTag})|tr '[:upper:]' '[:lower:]'|tr "/\-: " "_"`
