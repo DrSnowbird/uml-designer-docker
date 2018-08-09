@@ -3,8 +3,6 @@
 
 * UMLDesigner 8 + Java 8 JDK + Maven 3.5 + Python 3.5 + X11 (display GUI)
 
-# NOTE: This docker now is providing latest Eclipse Photon instead of Oxygen!!!
-
 # Components
 * UMLDesigner 8
 * java version "1.8.0_181"
@@ -16,15 +14,13 @@
 * Other tools: git wget unzip vim python python-setuptools python-dev python-numpy 
 
 # Run (recommended for easy-start)
-Image is pulling from openkbs/eclipse-oxygen-docker
+Image is pulling from openkbs/uml-designer-docker
 ```
 ./run.sh
 ```
 
 # Build
 You can build your own image locally.
-Note that the default build docker is "photon" version. 
-If you want to build older Eclipse like "oxygen", you can following instruction in next section
 ```
 ./build.sh
 ```
@@ -34,10 +30,6 @@ If you run "./run.sh" instead of "docker-compose up", you don't have to do anyth
 
 * The container uses a default "/workspace" folder. 
 * The script "./run.sh" will re-use or create the local folder in your $HOME directory with the path below to map into the docker's internal "/workspace" folder.
-```
-$HOME/data_docker/eclipse-oxygen-docker/workspace
-```
-The above configuration will ensure all your projects created in the container's "/workspace" being "persistent" in your local folder, "$HOME/data_docker/eclipse-oxygen-docker/workspace", for your repetitive restart docker container.
 
 # Other docker-based IDE
 * [openkbs/eclipse-photon-docker](https://hub.docker.com/r/openkbs/eclipse-photon-docker/)
