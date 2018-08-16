@@ -1,5 +1,5 @@
 # uml-designer-docker
-[![](https://images.microbadger.com/badges/image/openkbs/uml-designer-docker.svg)](https://microbadger.com/images/openkbs/uml-designer-docker "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/openkbs/uml-designer-docker.svg)](https://microbadger.com/images/openkbs/eclipse-oxygen-docker "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/openkbs/uml-designer-docker.svg)](https://microbadger.com/images/openkbs/uml-designer-docker "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/openkbs/uml-designer-docker.svg)](https://microbadger.com/images/openkbs/uml-designer-docker "Get your own version badge on microbadger.com")
 
 * UMLDesigner 8 + Java 8 JDK + Maven 3.5 + Python 3.5 + X11 (display GUI)
 
