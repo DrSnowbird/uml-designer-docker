@@ -15,22 +15,20 @@ ENV PRODUCT_WORKSPACE=${PRODUCT_WORKSPACE}
 ## ----------------------------------------------------------------------------
 
 ## -- Eclipse version: oxygen, photon, etc.: -- ##
-ENV PRODUCT_VERSION=${PRODUCT_VERSION:-8.1.0}
+ENV PRODUCT_VERSION=${PRODUCT_VERSION:-9.0.0}
 
 ## ----------------------------------------------------------------------------------- ##
 ## ----------- Don't change below unless Product download system change -------------- ##
 ## ----------------------------------------------------------------------------------- ##
 ## -- Eclipse Download Mirror site: -- ##
-ARG PRODUCT_MIRROR_SITE_URL=${PRODUCT_MIRROR_SITE_URL:-https://s3-eu-west-1.amazonaws.com/obeo-umldesigner-releases}
+#https://s3-eu-west-1.amazonaws.com/obeo-umldesigner-releases/9.0.0/bundles/UMLDesigner-linux.gtk.x86_64.zip
 
 ## -- Eclipse TAR/GZ filename: -- ##
-ARG PRODUCT_TAR=${PRODUCT_TAR:-UMLDesigner-linux.gtk.x86_64.zip}
-
+ARG PRODUCT_TAR=UMLDesigner-linux.gtk.x86_64.zip
+ARG PRODUCT_MIRROR_SITE_URL=https://s3-eu-west-1.amazonaws.com/obeo-umldesigner-releases
 ## -- Eclipse Download route: -- ##
 ARG PRODUCT_DOWNLOAD_ROUTE=${PRODUCT_DOWNLOAD_ROUTE:-bundles}
-
 ## -- Eclipse Download full URL: -- ##
-#ARG PRODUCT_DOWNLOAD_URL=${PRODUCT_DOWNLOAD_URL:-https://s3-eu-west-1.amazonaws.com/obeo-umldesigner-releases}
 ARG PRODUCT_DOWNLOAD_URL=${PRODUCT_MIRROR_SITE_URL}/${PRODUCT_VERSION}/${PRODUCT_DOWNLOAD_ROUTE}
 
 WORKDIR /opt
