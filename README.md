@@ -1,16 +1,15 @@
 # uml-designer-docker
 [![](https://images.microbadger.com/badges/image/openkbs/uml-designer-docker.svg)](https://microbadger.com/images/openkbs/uml-designer-docker "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/openkbs/uml-designer-docker.svg)](https://microbadger.com/images/openkbs/uml-designer-docker "Get your own version badge on microbadger.com")
 
-* UMLDesigner 8 + Java 8 JDK + Maven 3.5 + Python 3.5 + X11 (display GUI)
+* UMLDesigner 9 + Java 11 OpenJDK + Maven 3 + Python 3 + X11 (display GUI)
 
 # Components
-* UMLDesigner 8
-* java version "1.8.0_181"
-  Java(TM) SE Runtime Environment (build 1.8.0_181-b13)
-  Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
-* Apache Maven 3.5.3
-* Python 3.5.2
-* X11 display desktop
+* UMLDesigner v9.0.0
+* [Base Container Image: openkbs/jdk11-mvn-py3](https://github.com/DrSnowbird/jdk11-mvn-py3)
+* [Base Components: OpenJDK, Python 3, PIP, Node/NPM, Gradle, Maven, etc.](https://github.com/DrSnowbird/jdk11-mvn-py3#components)
+* X11 for desktop display
+* Google-Chrome
+* Firefox
 * Other tools: git wget unzip vim python python-setuptools python-dev python-numpy 
 
 # Run (recommended for easy-start)
@@ -48,9 +47,7 @@ More resource in X11 display of Eclipse on your host machine's OS, please see
 
 # Other possible Issues
 You might see the warning message or something similar in the launching xterm console like below, you can just ignore it. I googles around and some blogs just suggested to ignore since the IDE still functional ok.
-```
-** (eclipse:1): WARNING **: Couldn't connect to accessibility bus: Failed to connect to socket /tmp/dbus-wrKH8o5rny: Connection refused
 
-** (java:7): WARNING **: Couldn't connect to accessibility bus: Failed to connect to socket /tmp/dbus-wrKH8o5rny: Connection refused
+# Releases information
+* [See Releases Information](https://github.com/DrSnowbird/jdk-mvn-py3#releases-information)
 
-```
